@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showpoint_spot_desktop/enums.dart';
 import 'package:showpoint_spot_desktop/main.dart';
 import 'package:showpoint_spot_desktop/models/AppStateModel.dart';
 import 'package:showpoint_spot_desktop/models/CueModel.dart';
@@ -13,8 +14,19 @@ class _AppContainerState extends State<AppContainer> {
 @override
   void initState() {
     appState = AppStateModel(cues: <CueModel>[
-      // TODO: What the fuck is the syntax to add elements to this list?!
-      // '29384790', 5, 'bob', 100, 'FB', 'test', 'test', 10.0, 'khkj', 'hsdfh', 'jasdj' 
+      CueModel(
+        uid: '1',
+        spotCue: 1,
+        who: 'Roxie',
+        intensity: 100,
+        size: 'FB',
+        frame: 'F + 2',
+        time: '3s',
+        lxCue: 4,
+        location: 'DS OP - P/U on Rostra',
+        notes: 'Occaecat adipisicing velit adipisicing labore ullamco qui eu culpa duis est pariatur esse fugiat occaecat.',
+        cueType: 'int',
+      ),
     ]);
     super.initState();
   }
