@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:showpoint_spot_desktop/models/CueModel.dart';
 
-class IrisCue extends StatelessWidget {
+class OutCue extends StatelessWidget {
   final CueModel cueData;
 
-  IrisCue({
+  OutCue({
     this.cueData,
   });
 
@@ -16,9 +16,9 @@ class IrisCue extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border(
               top: BorderSide(color: Colors.black, width: 3.0),
-              left: BorderSide(color: Colors.black, width: 16.0),
+              //left: BorderSide(color: Colors.black, width: 16.0),
             ),
-            color: Colors.grey[400],
+            color: Colors.green[300],
           ),
           padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
           child: Column(
@@ -30,16 +30,11 @@ class IrisCue extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text('SIZE: ',
+                          Text(cueData.who.toUpperCase(),
                               style: Theme.of(context)
                                   .textTheme
                                   .headline
                                   .copyWith(fontWeight: FontWeight.bold)),
-                          Text(cueData.size,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline
-                                  .copyWith(fontWeight: FontWeight.bold))
                         ],
                       ),
                     ],
@@ -48,16 +43,11 @@ class IrisCue extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text('LX CUE: ',
+                          Text('OUT',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline
                                   .copyWith(fontWeight: FontWeight.bold)),
-                          Text(cueData.lxCue.toString(),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline
-                                  .copyWith(fontWeight: FontWeight.bold))
                         ],
                       ),
                     ],

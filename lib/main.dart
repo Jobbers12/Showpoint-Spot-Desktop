@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:showpoint_spot_desktop/Block.dart';
+import 'package:showpoint_spot_desktop/models/CueModel.dart';
 import 'package:showpoint_spot_desktop/theme/style.dart';
-import 'package:showpoint_spot_desktop/views/ColorCue.dart';
-import 'package:showpoint_spot_desktop/views/IntensityCue.dart';
-import 'package:showpoint_spot_desktop/views/IrisCue.dart';
+import 'package:showpoint_spot_desktop/BlockCanvas.dart';
 
 import 'AppContainer.dart';
 
@@ -21,16 +19,21 @@ class TopApp extends StatelessWidget {
 }
 
 class App extends StatelessWidget {
+  final List<CueModel> cues;
+
+  App({
+    this.cues,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton:
+            FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
         body: Column(
-      children: <Widget>[
-        IntensityCue(bgColor: Colors.green[300]),
-        ColorCue(),
-        IrisCue(),
-        IntensityCue(bgColor: Colors.blue[300]),
-      ],
-    ));
+          children: <Widget>[
+            BlockCanvas(cues: cues),
+          ],
+        ));
   }
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:showpoint_spot_desktop/models/CueModel.dart';
 
 class IntensityCue extends StatelessWidget {
+  final CueModel cueData;
   final Color bgColor;
 
   IntensityCue({
+    this.cueData,
     this.bgColor,
   });
   @override
@@ -22,7 +25,7 @@ class IntensityCue extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Text('ROXIE',
+                      Text(cueData.who.toUpperCase(),
                           style: Theme.of(context)
                               .textTheme
                               .headline
@@ -31,7 +34,7 @@ class IntensityCue extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      Text('100',
+                      Text(cueData.intensity.toString(),
                           style: Theme.of(context)
                               .textTheme
                               .headline
@@ -46,26 +49,29 @@ class IntensityCue extends StatelessWidget {
                   Column(
                     children: <Widget>[
                       Text('SIZE'),
-                      Text('HB', style: TextStyle(fontWeight: FontWeight.bold))
+                      Text(cueData.size,
+                          style: TextStyle(fontWeight: FontWeight.bold))
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Text('FRAME'),
-                      Text('F + 3',
+                      Text('COLOR'),
+                      Text(cueData.color,
                           style: TextStyle(fontWeight: FontWeight.bold))
                     ],
                   ),
                   Column(
                     children: <Widget>[
                       Text('TIME'),
-                      Text('3s', style: TextStyle(fontWeight: FontWeight.bold))
+                      Text(cueData.time,
+                          style: TextStyle(fontWeight: FontWeight.bold))
                     ],
                   ),
                   Column(
                     children: <Widget>[
                       Text('LX CUE'),
-                      Text('14', style: TextStyle(fontWeight: FontWeight.bold))
+                      Text(cueData.lxCue.toString(),
+                          style: TextStyle(fontWeight: FontWeight.bold))
                     ],
                   )
                 ],
@@ -73,15 +79,14 @@ class IntensityCue extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text('LOCATION: '),
-                  Text('US OP - Pickup on Rostra',
+                  Text(cueData.location,
                       style: TextStyle(fontWeight: FontWeight.bold))
                 ],
               ),
               Row(
                 children: <Widget>[
                   Text('NOTES: '),
-                  Text(
-                      'Reprehenderit in fugiat minim elit qui pariatur ex est nulla.',
+                  Text(cueData.notes,
                       style: TextStyle(fontWeight: FontWeight.bold))
                 ],
               )

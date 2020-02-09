@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:showpoint_spot_desktop/models/CueModel.dart';
 
 class ColorCue extends StatelessWidget {
+  final CueModel cueData;
+
+  ColorCue({
+    this.cueData,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -11,7 +18,7 @@ class ColorCue extends StatelessWidget {
               top: BorderSide(color: Colors.black, width: 3.0),
               left: BorderSide(color: Colors.black, width: 10.0),
             ),
-            color: Colors.grey[200],
+            color: Colors.grey[300],
           ),
           padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
           child: Column(
@@ -21,20 +28,37 @@ class ColorCue extends StatelessWidget {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Text('FRAME: 5',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline
-                              .copyWith(fontWeight: FontWeight.bold)),
+                      Row(
+                        children: <Widget>[
+                          Text('COLOR: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline
+                                  .copyWith(fontWeight: FontWeight.bold)),
+                          Text(cueData.color,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline
+                                  .copyWith(fontWeight: FontWeight.bold)),
+                        ],
+                      ),
                     ],
                   ),
                   Column(
                     children: <Widget>[
-                      Text('LX CUE: 100',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline
-                              .copyWith(fontWeight: FontWeight.bold)),
+                      Row(
+                        children: <Widget>[
+                          Text('LX CUE: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline
+                                  .copyWith(fontWeight: FontWeight.bold)),
+                                Text(cueData.lxCue.toString(), style: Theme.of(context)
+                                  .textTheme
+                                  .headline
+                                  .copyWith(fontWeight: FontWeight.bold))
+                        ],
+                      ),
                     ],
                   )
                 ],
@@ -42,15 +66,14 @@ class ColorCue extends StatelessWidget {
               Row(
                 children: <Widget>[
                   Text('LOCATION: '),
-                  Text('US OP - Pickup on Rostra',
+                  Text(cueData.location,
                       style: TextStyle(fontWeight: FontWeight.bold))
                 ],
               ),
               Row(
                 children: <Widget>[
                   Text('NOTES: '),
-                  Text(
-                      'Reprehenderit in fugiat minim elit qui pariatur ex est nulla.',
+                  Text(cueData.notes,
                       style: TextStyle(fontWeight: FontWeight.bold))
                 ],
               )
