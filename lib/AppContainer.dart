@@ -109,16 +109,39 @@ class _AppContainerState extends State<AppContainer> {
     }
   }
 
-
   // CRUD METHOD: Create - Add Cue
-  Future<bool> addCue(CueModel newCue) async {
+  Future<bool> addCue(CueModel newCue, AddInsert addInsert) async {
     // TODO: If inserting instead of adding- keep cues in order
     if (_isStorageReady == true) {
       final newList = appState.cues.toList()..add(newCue);
+
+      if (addInsert == AddInsert.add) {
+      } else {}
+
+      _appStorage.setItem('cues', newList);
+    }
+  }
+
+  // CRUD METHOD: Read - Get a cue based on ID
+  Future<CueModel> getCue(String cueId) {
+    
+  }
+
+  // CRUD METHOD: Update - Update a cue
+  // Future<bool> updateCue(CueModel newCue) {
+  //   final newList = appState.cues.map((item) => item.uid == newCue.uid ? item.copyWith(who: ‘Roxie’) : item);
+
+  //   if (_isStorageReady == true) {
+  //     _appStorage.setItem('cues', newList);
+  //   }
+  // }
+
+  // CRUD METHOD: Delete - Remove a cue based on ID
+  Future<bool> deleteCue(String cueId) {
+    if (_isStorageReady == true) {
+      final newList = appState.cues.where((item) => item.uid != cueId).toList();
 
       _appStorage.setItem('cues', newList);
     }
   }
 }
-
-//Blkash

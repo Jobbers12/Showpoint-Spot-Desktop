@@ -30,6 +30,7 @@ class IntensityCue extends StatelessWidget {
                               .textTheme
                               .headline
                               .copyWith(fontWeight: FontWeight.bold)),
+                      //TextField(controller: TextEditingController()..text = 'test',)
                     ],
                   ),
                   Column(

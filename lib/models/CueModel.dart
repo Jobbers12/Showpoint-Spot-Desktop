@@ -31,15 +31,15 @@ class CueModel {
     this.notes
   });
 
-  //CueModel.toJson(Map<String, dynamic> json) :
-    // this.uid = json['uid'],
-    // this.spotCue = json['spotCue'],
-    // this.who = ShowValueModel<String>.toJson(json['who']),
-    // this.intensity = ShowValueModel<int>.fromJson(json['intensity']),
-    // this.size = ShowValueModel<String>.fromJson(json['size']),
-    // this.frame = ShowValueModel<String>.fromJson(json['frame']),
-    // this.time = ShowValueModel<String>.fromJson(json['time']),
-    // this.lxCue = ShowValueModel<double>.fromJson(json['lxCue']),
-    // this.location = ShowValueModel<String>.fromJson(json['location']),
-    // this.notes = json['notes'];
+  // CueModel.toJson(Map<String, dynamic> json) :
+  //   this.uid = json['uid'],
+  //   this.spotCue = json['spotCue'],
+  //   this.who = ShowValueModel<String>.toJson(json['who']),
+  //   this.intensity = ShowValueModel<int>.fromJson(json['intensity']),
+  //   this.size = ShowValueModel<String>.fromJson(json['size']),
+  //   this.frame = ShowValueModel<String>.fromJson(json['frame']),
+  //   this.time = ShowValueModel<String>.fromJson(json['time']),
+  //   this.lxCue = ShowValueModel<double>.fromJson(json['lxCue']),
+  //   this.location = ShowValueModel<String>.fromJson(json['location']),
+  //   this.notes = json['notes'];
 }
