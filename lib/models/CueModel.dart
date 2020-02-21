@@ -3,6 +3,7 @@ import 'package:showpoint_spot_desktop/enums.dart';
 
 class CueModel {
   final String uid; //string
+  final int spotID; //int
   final double spotCue; //int
   final String outCue; //string
   final double lxCue; //double
@@ -19,6 +20,7 @@ class CueModel {
   CueModel({
     @required this.uid,
     @required this.spotCue,
+    @required this.spotID,
     this.outCue,
     this.lxCue,
     this.cueType,

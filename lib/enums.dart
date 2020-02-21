@@ -11,3 +11,9 @@ enum AddInsert {
   add,
   insert
 }
+
+// Type for blocks. Cue = data, blank = spacer
+enum BlockType {
+  cue,
+  blank
+}

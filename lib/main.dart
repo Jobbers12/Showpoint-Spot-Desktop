@@ -20,9 +20,11 @@ class TopApp extends StatelessWidget {
 
 class App extends StatelessWidget {
   final List<CueModel> cues;
+  final int selectedSpotID;
 
   App({
     this.cues,
+    this.selectedSpotID,
   });
 
   @override
@@ -32,7 +34,7 @@ class App extends StatelessWidget {
             FloatingActionButton(child: Icon(Icons.add), onPressed: () {}),
         body: Column(
           children: <Widget>[
-            BlockCanvas(cues: cues),
+            BlockCanvas(cues: cues, selectedSpotID: selectedSpotID),
           ],
         ));
   }
