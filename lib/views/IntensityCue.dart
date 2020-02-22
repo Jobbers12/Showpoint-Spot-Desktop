@@ -15,7 +15,9 @@ class IntensityCue extends StatelessWidget {
       flex: 1,
       child: Container(
           decoration: BoxDecoration(
-              border: Border(top: BorderSide(color: Colors.black, width: 3.0)),
+              border: Border(
+                bottom: BorderSide(color: Colors.black, width: 3.0),
+              ),
               color: bgColor),
           padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
           child: Column(

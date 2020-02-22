@@ -23,30 +23,28 @@ class BlockCanvas extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Column(
-                  children: <Widget>[
-                    Text('SPOT CUE',
-                        style: Theme.of(context)
-                            .textTheme
-                            .title
-                            .copyWith(fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 6,
                 child: Container(
-                  color: _currentlySelectedSpot(selectedSpotID, 1),
+                  decoration: BoxDecoration(
+                    border: _bottomBorder(),
+                  ),
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        'SPOT 1',
-                        style: Theme.of(context)
-                            .textTheme
-                            .title
-                            .copyWith(fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: EdgeInsets.only(top: 4),
                       ),
-                      Text('SAM')
+                      Text('SPOT CUE',
+                          style: Theme.of(context)
+                              .textTheme
+                              .title
+                              .copyWith(fontWeight: FontWeight.bold)),
+                      Text(
+                        'UPDATE 00001',
+                        style: TextStyle(
+                            color: Colors.grey, fontStyle: FontStyle.italic),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                      ),
                     ],
                   ),
                 ),
@@ -54,9 +52,40 @@ class BlockCanvas extends StatelessWidget {
               Expanded(
                 flex: 6,
                 child: Container(
-                  color: _currentlySelectedSpot(selectedSpotID, 2),
+                  decoration: _sideBorders().copyWith(
+                    color: _currentlySelectedSpot(selectedSpotID, 1),
+                    border: _bottomBorder(),
+                  ),
                   child: Column(
                     children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 4),
+                      ),
+                      Text(
+                        'SPOT 1',
+                        style: Theme.of(context)
+                            .textTheme
+                            .title
+                            .copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      Text('SAM'),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 6,
+                child: Container(
+                  decoration: _sideBorders().copyWith(
+                      color: _currentlySelectedSpot(selectedSpotID, 2)),
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 4),
+                      ),
                       Text(
                         'SPOT 2',
                         style: Theme.of(context)
@@ -65,6 +94,9 @@ class BlockCanvas extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text('PETE'),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                      ),
                     ],
                   ),
                 ),
@@ -87,17 +119,23 @@ class BlockCanvas extends StatelessWidget {
               // LIST OF SPOT ONE CUES. NEED TO ARRANGE BASED ON LIST
               Expanded(
                 flex: 6,
-                child: Column(
-                  children: cues
-                      .map((item) => _displayBlock(item, item.cueType))
-                      .toList(),
+                child: Container(
+                  decoration: _sideBorders(),
+                  child: Column(
+                    children: cues
+                        .map((item) => _displayBlock(item, item.cueType))
+                        .toList(),
+                  ),
                 ),
               ),
               // LIST OF SPOT TWO CUE NUMBERS. CURRENTLY HERE TO USE FOR SPACING REASONS
               Expanded(
                 flex: 6,
-                child: Column(
-                  children: <Widget>[Text('SPOT 2')],
+                child: Container(
+                  decoration: _sideBorders(),
+                  child: Column(
+                    children: <Widget>[Text('SPOT 2')],
+                  ),
                 ),
               )
             ],
@@ -122,8 +160,12 @@ class BlockCanvas extends StatelessWidget {
   }
 
 // Generates a row with a cue number within it
-  Widget _displayCueNumbers(double cueNumber, CueType cueType, BuildContext context) {
+  Widget _displayCueNumbers(
+      double cueNumber, CueType cueType, BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        border: _bottomBorder(),
+      ),
       height: _blockHeight(cueType),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -181,4 +223,30 @@ class BlockCanvas extends StatelessWidget {
         return 111.0;
     }
   }
+}
+
+// Returns side borders
+BoxDecoration _sideBorders() {
+  return BoxDecoration(
+    border: Border(
+      left: BorderSide(
+        color: Colors.black,
+        width: 3.0,
+      ),
+      right: BorderSide(
+        color: Colors.black,
+        width: 3.0,
+      ),
+    ),
+  );
+}
+
+// Returns a bottom border
+Border _bottomBorder() {
+  return Border(
+    bottom: BorderSide(
+      color: Colors.black,
+      width: 3.0,
+    ),
+  );
 }

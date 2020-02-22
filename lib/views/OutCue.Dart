@@ -15,7 +15,7 @@ class OutCue extends StatelessWidget {
       child: Container(
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: Colors.black, width: 3.0),
+              bottom: BorderSide(color: Colors.black, width: 3.0),
               //left: BorderSide(color: Colors.black, width: 16.0),
             ),
             color: Colors.green[300],

@@ -15,7 +15,7 @@ class ColorCue extends StatelessWidget {
       child: Container(
           decoration: BoxDecoration(
             border: Border(
-              top: BorderSide(color: Colors.black, width: 3.0),
+              bottom: BorderSide(color: Colors.black, width: 3.0),
               left: BorderSide(color: Colors.black, width: 10.0),
             ),
             color: Colors.grey[300],
@@ -53,7 +53,8 @@ class ColorCue extends StatelessWidget {
                                   .textTheme
                                   .headline
                                   .copyWith(fontWeight: FontWeight.bold)),
-                                Text(cueData.lxCue.toString(), style: Theme.of(context)
+                          Text(cueData.lxCue.toString(),
+                              style: Theme.of(context)
                                   .textTheme
                                   .headline
                                   .copyWith(fontWeight: FontWeight.bold))
